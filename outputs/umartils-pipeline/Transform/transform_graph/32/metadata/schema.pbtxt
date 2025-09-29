@@ -1,0 +1,176 @@
+feature {
+  name: "Age"
+  type: INT
+  presence {
+    min_fraction: 1.0
+    min_count: 1
+  }
+  shape {
+    dim {
+      size: 1
+    }
+  }
+}
+feature {
+  name: "Blood_Pressure"
+  type: BYTES
+  domain: "Blood_Pressure"
+  presence {
+    min_fraction: 1.0
+    min_count: 1
+  }
+  shape {
+    dim {
+      size: 1
+    }
+  }
+}
+feature {
+  name: "Cholesterol_Level"
+  type: BYTES
+  domain: "Cholesterol_Level"
+  presence {
+    min_fraction: 1.0
+    min_count: 1
+  }
+  shape {
+    dim {
+      size: 1
+    }
+  }
+}
+feature {
+  name: "Cough"
+  type: BYTES
+  domain: "Cough"
+  presence {
+    min_fraction: 1.0
+    min_count: 1
+  }
+  shape {
+    dim {
+      size: 1
+    }
+  }
+}
+feature {
+  name: "Difficulty_Breathing"
+  type: BYTES
+  domain: "Difficulty_Breathing"
+  presence {
+    min_fraction: 1.0
+    min_count: 1
+  }
+  shape {
+    dim {
+      size: 1
+    }
+  }
+}
+feature {
+  name: "Disease"
+  type: BYTES
+  presence {
+    min_fraction: 1.0
+    min_count: 1
+  }
+  shape {
+    dim {
+      size: 1
+    }
+  }
+}
+feature {
+  name: "Fatigue"
+  type: BYTES
+  domain: "Fatigue"
+  presence {
+    min_fraction: 1.0
+    min_count: 1
+  }
+  shape {
+    dim {
+      size: 1
+    }
+  }
+}
+feature {
+  name: "Fever"
+  type: BYTES
+  domain: "Fever"
+  presence {
+    min_fraction: 1.0
+    min_count: 1
+  }
+  shape {
+    dim {
+      size: 1
+    }
+  }
+}
+feature {
+  name: "Gender"
+  type: BYTES
+  domain: "Gender"
+  presence {
+    min_fraction: 1.0
+    min_count: 1
+  }
+  shape {
+    dim {
+      size: 1
+    }
+  }
+}
+feature {
+  name: "Outcome_Variable"
+  type: INT
+  bool_domain {
+  }
+  presence {
+    min_fraction: 1.0
+    min_count: 1
+  }
+  shape {
+    dim {
+      size: 1
+    }
+  }
+}
+string_domain {
+  name: "Blood_Pressure"
+  value: "High"
+  value: "Low"
+  value: "Normal"
+}
+string_domain {
+  name: "Cholesterol_Level"
+  value: "High"
+  value: "Low"
+  value: "Normal"
+}
+string_domain {
+  name: "Cough"
+  value: "No"
+  value: "Yes"
+}
+string_domain {
+  name: "Difficulty_Breathing"
+  value: "No"
+  value: "Yes"
+}
+string_domain {
+  name: "Fatigue"
+  value: "No"
+  value: "Yes"
+}
+string_domain {
+  name: "Fever"
+  value: "No"
+  value: "Yes"
+}
+string_domain {
+  name: "Gender"
+  value: "Female"
+  value: "Male"
+}

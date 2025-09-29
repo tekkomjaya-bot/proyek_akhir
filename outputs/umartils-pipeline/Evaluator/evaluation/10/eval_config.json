@@ -1,0 +1,46 @@
+{
+  "evalConfig": {
+    "modelSpecs": [
+      {
+        "labelKey": "Outcome_Variable",
+        "predictionKey": "predictions"
+      }
+    ],
+    "slicingSpecs": [
+      {},
+      {}
+    ],
+    "metricsSpecs": [
+      {
+        "metrics": [
+          {
+            "className": "Precision"
+          },
+          {
+            "className": "Recall"
+          },
+          {
+            "className": "ExampleCount"
+          },
+          {
+            "className": "BinaryAccuracy",
+            "threshold": {
+              "valueThreshold": {
+                "lowerBound": 0.5
+              }
+            }
+          }
+        ],
+        "modelNames": [
+          ""
+        ]
+      }
+    ]
+  },
+  "version": "0.42.0",
+  "dataLocation": "<user provided PCollection>",
+  "fileFormat": "<unknown>",
+  "modelLocations": {
+    "": "outputs\\umartils-pipeline\\Trainer\\model\\8\\Format-Serving"
+  }
+}
