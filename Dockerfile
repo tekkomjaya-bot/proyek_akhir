@@ -1,28 +1,29 @@
+# Gunakan base image TensorFlow Serving
 FROM tensorflow/serving:latest
 
+# Buat direktori kerja
+WORKDIR /app
+
 # Copy model hasil training TFX
+# Ganti '1758901692' dengan path versi model Anda jika berbeda
 COPY ./outputs/serving_model/1758901692 /models/diabetes-model/1
-COPY ./config /model_config
+
+# Copy file konfigurasi untuk monitoring
+COPY ./config/prometheus.config /app/config/prometheus.config
+
+# Copy skrip entrypoint
+COPY ./scripts/tf_serving_entrypoint.sh /usr/bin/tf_serving_entrypoint.sh
+RUN chmod +x /usr/bin/tf_serving_entrypoint.sh
 
 # Set environment variables
 ENV MODEL_NAME=diabetes-model
 ENV MODEL_BASE_PATH=/models
-ENV MONITORING_CONFIG="/model_config/prometheus.config"
-# HAPUS BARIS INI: ENV PORT=8080
-# Railway akan menyediakan variabel $PORT secara otomatis
+# Path ke file konfigurasi monitoring di dalam container
+ENV MONITORING_CONFIG_FILE=/app/config/prometheus.config
 
-# Entrypoint untuk TensorFlow Serving
-# Skrip ini sudah benar karena menggunakan ${PORT} yang akan diisi oleh Railway
-RUN echo '#!/bin/bash \n\n\
-env \n\
-tensorflow_model_server \
---port=8500 \
---rest_api_port=${PORT} \
---rest_api_host=0.0.0.0 \
---model_name=${MODEL_NAME} \
---model_base_path=${MODEL_BASE_PATH}/${MODEL_NAME} \
---monitoring_config_file=${MONITORING_CONFIG} \
-"$@"' > /usr/bin/tf_serving_entrypoint.sh \
-&& chmod +x /usr/bin/tf_serving_entrypoint.sh
+# Expose port untuk gRPC dan REST API (hanya untuk dokumentasi, Railway akan handle port)
+# Port 8500 untuk gRPC, ${PORT} untuk REST API
+EXPOSE 8500
 
+# Jalankan server
 ENTRYPOINT ["/usr/bin/tf_serving_entrypoint.sh"]

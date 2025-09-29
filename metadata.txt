@@ -1,0 +1,1 @@
+https://proyekakhir-production.up.railway.app/v1/models/diabetes-model/metadata
