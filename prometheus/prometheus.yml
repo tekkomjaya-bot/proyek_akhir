@@ -10,4 +10,4 @@ scrape_configs:
     scrape_interval: 5s 
     metrics_path: /monitoring/prometheus/metrics 
     static_configs:
-      - targets: ['proyek_akhir.railway.internal'] 
+      - targets: ['proyek_akhir:8501'] 
